@@ -9,9 +9,22 @@ int main(int argc, char** argv)
     printf("debug mode\n\n");
     #endif
 
-    // duration of lunar cycle
+    // Program variables
+
+    // duration of lunar cycle in days
     const long double lunarDays = 29.53058770576;
+
+    // duration of lunar cycle in seconds
     long double lunarSeconds = lunarDays * (24 * 60 * 60);
+
+    // set values for first new moon in 2000 (reference date)
+    struct tm firstMoon;
+    firstMoon.tm_year = 2000;
+    firstMoon.tm_mon = 1;
+    firstMoon.tm_mday = 6;
+    firstMoon.tm_hour = 18;
+    firstMoon.tm_min = 14;
+    firstMoon.tm_sec = 0;
 
     #ifdef DEBUG
     printf("%.11Lf\n", lunarDays);
