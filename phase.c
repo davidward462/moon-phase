@@ -11,11 +11,33 @@ int main(int argc, char** argv)
 
     // Program variables
 
+    enum phase
+    {
+        new,
+        waxingCr,
+        firstQu,
+        waxingGib,
+        full,
+        waningGib,
+        lastQu,
+        waningCr,
+        secondNew,
+    };
+
+    enum phase currentPhase = new;
+
     // duration of lunar cycle in days
     const long double lunarDays = 29.53058770576;
 
     // duration of lunar cycle in seconds
     long double lunarSeconds = lunarDays * (24 * 60 * 60);
+
+    // Moon phase names
+    long double newMoon = 0.0;
+    long double firstQuarter = 7.38264692644;
+    long double fullMoon = 14.76529385288;
+    long double lastQuarter = 22.14794077932;
+
 
     // set values for first new moon in 2000 (reference date)
     struct tm firstMoon;
@@ -25,6 +47,20 @@ int main(int argc, char** argv)
     firstMoon.tm_hour = 18;
     firstMoon.tm_min = 14;
     firstMoon.tm_sec = 0;
+
+    
+    /**
+    phaseArray  = (
+    [0, 1]
+    [1, 6.38264692644]
+    [6.38264692644, 8.38264692644]
+    [8.38264692644, 13.76529385288]
+    [13.76529385288, 15.76529385288]
+    [15.76529385288, 21.14794077932]
+    [21.14794077932, 23.14794077932]
+    [23.14794077932, 28.53058770576]
+    [28.53058770576, 29.53058770576]
+    **/    
 
     #ifdef DEBUG
     printf("%.11Lf\n", lunarDays);
